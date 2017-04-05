@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+  zero_deep_learning:
+    build: .
+    volumes:
+      - ./src:/home/src
