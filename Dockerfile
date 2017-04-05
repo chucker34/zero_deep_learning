@@ -19,8 +19,5 @@ ENV PATH $PYENV_ROOT/versions/anaconda3-$ANACONDA_VER/bin:$PATH
 
 # install modules
 RUN conda update -y conda
-# RUN conda create -n py35 python=3.5
-# RUN source activate py35
 RUN pip install --upgrade pip
 RUN conda install -y NumPy matplotlib
-# RUN conda install pyqt=4.11
