@@ -6,12 +6,14 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
   wget \
   python-qt4
 
-# install anaconda
+# install pyenv
 RUN git clone https://github.com/yyuu/pyenv.git $HOME/.pyenv
 RUN git clone https://github.com/yyuu/pyenv-pip-rehash.git /root/.pyenv/plugins/pyenv-pip-rehash
 ENV PYENV_ROOT /root/.pyenv
 ENV PATH $PYENV_ROOT/bin:$PATH
 RUN echo 'eval "$(pyenv init -)"' >> .bashrc
+
+# install anaconda
 ENV ANACONDA_VER 4.3.1
 RUN pyenv install anaconda3-$ANACONDA_VER
 RUN pyenv global anaconda3-$ANACONDA_VER
