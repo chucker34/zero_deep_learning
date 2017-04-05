@@ -14,10 +14,10 @@ ENV PATH $PYENV_ROOT/bin:$PATH
 RUN echo 'eval "$(pyenv init -)"' >> .bashrc
 
 # install anaconda
-ENV ANACONDA_VER 4.3.1
-RUN pyenv install anaconda3-$ANACONDA_VER
-RUN pyenv global anaconda3-$ANACONDA_VER
-ENV PATH $PYENV_ROOT/versions/anaconda3-$ANACONDA_VER/bin:$PATH
+ENV MINICONDA_VER 4.1.11
+RUN pyenv install miniconda3-$MINICONDA_VER
+RUN pyenv global miniconda3-$MINICONDA_VER
+ENV PATH $PYENV_ROOT/versions/miniconda3-$MINICONDA_VER/bin:$PATH
 
 # install modules
 RUN conda update -y conda
