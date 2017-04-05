@@ -3,9 +3,10 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
   bzip2 \
   git \
-  wget
+  wget \
+  python-qt4
 
-# install python
+# install anaconda
 RUN git clone https://github.com/yyuu/pyenv.git $HOME/.pyenv
 RUN git clone https://github.com/yyuu/pyenv-pip-rehash.git /root/.pyenv/plugins/pyenv-pip-rehash
 ENV PYENV_ROOT /root/.pyenv
@@ -16,7 +17,10 @@ RUN pyenv install anaconda3-$ANACONDA_VER
 RUN pyenv global anaconda3-$ANACONDA_VER
 ENV PATH $PYENV_ROOT/versions/anaconda3-$ANACONDA_VER/bin:$PATH
 
-# install python package
+# install modules
 RUN conda update -y conda
+# RUN conda create -n py35 python=3.5
+# RUN source activate py35
 RUN pip install --upgrade pip
 RUN conda install -y NumPy matplotlib
+# RUN conda install pyqt=4.11
